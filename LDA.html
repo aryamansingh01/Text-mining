@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data Science Project Journey</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body> 
+        <div class="navbar">
+            <a href="Introduction.html">Introduction</a>
+            <a href="DataPrep_EDA.html">DataPrep_EDA</a>
+            <a href="Clustering.html">Clustering</a>
+            <a href="ARM.html">ARM</a>
+            <a href="LDA.html">LDA</a>
+            <a href="DecTrees.html">DecTrees</a>
+            <a href="SVMs.html">SVMs</a>
+            <a href="Regression.html">Regression</a>
+            <a href="NN.html">NN</a>
+            <a href="Conclusions.html">Conclusions</a>
+            <a href="code.html">Code</a>
+        </div>
+
+        <div class="lda-tab">
+            <h1>LDA Tab</h1>
+            <section id="overview">
+                <h2>Overview</h2>
+                <p>Topic modeling is a type of statistical modeling for discovering the abstract "topics" that occur in a collection of documents. It is frequently used in text mining to uncover hidden semantic structures in a text body. Essentially, topic modeling is a method for identifying and annotating large archives of texts with thematic information.</p>
+                <p>It works by grouping words into topics based on their distribution across the set of documents; words that frequently occur together are likely part of the same topic. For example, in a dataset of news articles, topic modeling could reveal topics related to 'politics,' 'sports,' 'economy,' etc., based on the clustering of related words.</p>
+                <p>Topic modeling algorithms, like Latent Dirichlet Allocation (LDA), Non-negative Matrix Factorization (NMF), and Latent Semantic Analysis (LSA), assume that each document in a corpus contains a mixture of topics and that each topic is a mixture of words. To gain information from your data using topic modeling, you would:</p>
+                <ol>
+                    <li>Preprocess the Text: Clean the data by removing stop words, stemming/lemmatizing, and possibly using other techniques like n-grams or term frequency-inverse document frequency (TF-IDF).</li>
+                    <li>Choose a Model: Select an appropriate topic modeling algorithm based on the nature and amount of your data.</li>
+                    <li>Determine the Number of Topics: This is often an iterative process where you might start with an educated guess and then refine the number of topics based on model evaluation metrics or coherence scores.</li>
+                    <li>Fit the Model: Run the algorithm to learn the topic representation of each document and the word representation of each topic.</li>
+                    <li>Analyze the Results: Examine the topics the model has discovered to gain insights. Each topic will be represented by a set of terms with certain probabilities signifying their relevance to the topic.</li>
+                    <li>Iterate: Adjust the model parameters, the number of topics, or the text preprocessing based on the initial results and repeat the process to improve coherence and interpretability.</li>
+                </ol>
+                <p>By applying topic modeling to your data, you can uncover themes and patterns that may not be apparent through simple observation, helping in organizing, understanding, and summarizing large datasets of unstructured text.</p>
+            </section>
+            
+            <section id="data-prep">
+                <h2>Data Prep</h2>
+                <p>Latent Dirichlet Allocation (LDA) requires a specific format of text data. LDA is a generative statistical model that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar. For text documents, these unobserved groups are topics, and the LDA aims to model each document as a mixture of various topics.</p>
+                <p>To prepare text data for LDA, you typically follow these steps:</p>
+                <ol>
+                    <li><strong>Tokenization:</strong>
+                        <ul>
+                            <li>Split text into individual words or terms.</li>
+                            <li>This process often involves removing punctuation and splitting on whitespace or specific characters.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Removing Stop Words:</strong>
+                        <ul>
+                            <li>Stop words are typically removed because they are highly frequent words like “is”, “and”, “the”, etc., which don't contribute to the meaning of the text for the purpose of modeling.</li>
+                            <li>Most text processing libraries provide a list of stop words that can be used to filter them out.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Stemming/Lemmatization:</strong>
+                        <ul>
+                            <li>Stemming chops off the ends of words hoping to achieve this goal correctly most of the time, reducing the word to its base or root form.</li>
+                            <li>Lemmatization takes into consideration the morphological analysis of the words. It aims to remove inflectional endings only and to return the base or dictionary form of a word, known as the lemma.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Vectorization:</strong>
+                        <ul>
+                            <li><strong>CountVectorizer:</strong> Transforms the text data into a sparse matrix of token counts. Here, the value of each cell in the matrix is the count of times a particular word (from the entire corpus' vocabulary) appears in a particular document.</li>
+                            <li><strong>Tf-idfVectorizer:</strong> Similar to CountVectorizer but goes a step further by reducing the weight of terms that occur very frequently and increasing the weight of terms that occur rarely. Tf-idf stands for Term Frequency-Inverse Document Frequency, and it's useful for LDA to weigh terms based on their importance.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>Once the data is processed and vectorized, it can be fed into the LDA model. The LDA algorithm then attempts to back out the structure of the topics from the raw counts of words in the documents. It does this by assuming that each document is a mixture of topics, and each topic is a mixture of words.</p>
+                <p>The 'topics' in this context are not topics in the human sense but rather clusters of words that frequently occur together in your corpus of text data. The model outputs probabilities: for each document, a distribution over topics; for each topic, a distribution over words.</p>
+                <p>This way, LDA provides a statistical framework for the discovery of abstract topics in a large volume of text. It’s often used in natural language processing and machine learning applications to organize, understand, and summarize large datasets of textual information. It can reveal the underlying themes or discourse in the data, which can be incredibly valuable for exploratory data analysis, content recommendation systems, and as a feature engineering step for further predictive models.</p>
+                <p>The LDA model can then be applied to this numerical data, which represents the word counts for different terms in the documents. The LDA will output topics represented as a mixture of words, and documents represented as a mixture of topics. The data is not labeled because LDA is an unsupervised technique — it discovers the latent topics on its own without any guidance from pre-assigned categories or labels.</p>
+            </section>
+            
+            <section id="code">
+                <h2>Code</h2>
+            
+                <a href="code.html">Link to the code</a>
+            </section>
+            <section id="results">
+                <h2>Results</h2>
+                <p>The visualizations you've provided are from pyLDAvis, which is designed to help interpret the topics discovered by a Latent Dirichlet Allocation (LDA) model. Each visualization consists of two main parts:</p>
+                <ol>
+                    <li><strong>Intertopic Distance Map:</strong> This is on the left side and displays the topics as circles in a two-dimensional space. The closer two topics are in this space, the more similar they are. The size of each circle represents the relative proportion of the dataset's documents that belong to that topic.</li>
+                    <li><strong>Top Terms:</strong> On the right side, you see a bar chart of the most relevant terms for the selected topic. This relevancy is a combination of the term frequency within the selected topic (the red bar) and the overall term frequency (the blue bar).</li>
+                </ol>
+                <p>Further components generally observed in such visualizations include:</p>
+                <ul>
+                    <li><strong>Intertopic Distance Map (Multidimensional Scaling Plot):</strong> Shows the topics plotted in a two-dimensional space based on their similarity. The size of the bubble typically corresponds to the prevalence of the topic in the corpus.</li>
+                    <li><strong>Top Terms Bar Chart:</strong> For each selected topic, a bar chart showing the most relevant terms. Relevance is a metric that balances term frequency in the corpus with its exclusivity to the topic.</li>
+                    <li><strong>Relevance Metric Slider (λ):</strong> This slider allows you to adjust the relevance metric for the terms displayed in the bar chart. Adjusting λ can help you better understand the terms that are both frequent and exclusive to a topic (at higher λ values) or simply the most frequent terms (at lower λ values).</li>
+                </ul>
+                <p>From what we can gather without the specific details, each topic visualization represents a different topic extracted from the corpus. It seems there might be a technical issue with the data feeding into the bar chart, indicated by the "nan" label, which suggests that the actual term labels are not being displayed. This could be due to missing data, a processing error, or an issue with the visualization tool itself.</p>
+                <p>In practical terms, to gain insight from these visualizations, you would look at the position and size of the bubbles on the intertopic distance map to understand how topics relate to each other and their prevalence. Then, by examining the bar chart for each topic, you can discern what each topic is about based on the terms most relevant to that topic.</p>
+                <img src="topic_0.png" alt="Visualization 1">
+                <img src="Topic_1.png" alt="Visualization 2">
+                <img src="Topic_3.png" alt="Visualization 3">
+                <img src="Topic_5.png" alt="Visualization 4">
+            </section>
+            
+        </div>
+
+<footer>
+    <p>© Aryaman singh</p>
+</footer>
+
+            <script src="style.js"></script>
+    </body>
+</html>

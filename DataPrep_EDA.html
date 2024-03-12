@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data Science Project Journey</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body> 
+        <div class="navbar">
+            <a href="Introduction.html">Introduction</a>
+            <a href="DataPrep_EDA.html">DataPrep_EDA</a>
+            <a href="Clustering.html">Clustering</a>
+            <a href="ARM.html">ARM</a>
+            <a href="LDA.html">LDA</a>
+            <a href="DecTrees.html">DecTrees</a>
+            <a href="SVMs.html">SVMs</a>
+            <a href="Regression.html">Regression</a>
+            <a href="NN.html">NN</a>
+            <a href="Conclusions.html">Conclusions</a>
+            <a href="code.html">Code</a>
+        </div>
+        <header>
+            <h1>Data Preparation</h1>
+        </header>
+        <main>
+            <section class="data-sources">
+                <h2>Data Sources</h2>
+                <p>Here, we discuss the sources of our data, including websites, APIs, and raw data links.</p>
+                <!-- Example of API usage -->
+                
+                <div class="api-example">
+                    <h3>Are gas-powered or electric vehicles a better deal? EVs may win out in long run, experts say </h3>
+                    <p>Website: <a href=https://www.cnbc.com/2023/04/23/are-evs-or-gasoline-cars-a-better-deal.html>https://www.cnbc.com/2023/04/23/are-evs-or-gasoline-cars-a-better-deal.html</a></p>
+                    <p>Why: <code>This is a news website CNBC. it have a article on comparing which car is better petrol cars or electric cars.</code></p>
+                       
+                </div>
+                <div class="api-example">
+                    <h3>When will EVs overtake gas-powered vehicles? </h3>
+                    <p>Website: <a href=https://www.hertz.com/us/en/blog/electric-vehicles/when-will-evs-overtake-gas-vehicles>https://www.hertz.com/us/en/blog/electric-vehicles/when-will-evs-overtake-gas-vehicles</a></p>
+                    <p>Why: <code>This article educates the audience about the current state vs future prospects of electric cars compared to traditional gas powered cars. By offering statistics, projection and insights into the EVs market, it helps the readers understand the pace of change and the factors influencing the shift towards electric mobility.  </code></p>
+                       
+                </div>
+                <div class="api-example">
+                    <h3>API Used: Reddit API </h3>
+                    <p>API Website: <a href="https://www.reddit.com/prefs/apps">https://www.reddit.com/prefs/apps</a></p>
+                    <p>Core Endpoint: <code>/data/endpoint</code></p>
+                    <p>why: <code>using this API, were able to extract the text data about the opinion of people about the topic Petrol cars vs electric cars </code></p>
+                </div>
+                <div class="api-example">
+                    <h3>API Used : news API </h3>
+                    <p>API Website : <a href="https://newsapi.org">https://newsapi.org</a></p>
+                    <p>Dataset: <code>The dataset contains articles from global news agencies to niche blogs  and the dataset is  accomplished by rich metadata, including the publication data, source, author and a summary offering comprehensive insights at a glance.    </code></p>
+                    <p>Why: <code>This API is used beacuse it has a dynamics feed aggregating headlines from over the 30000 news sources aba blog around the world, from leading global news agencies to niche blogs, to stay informed with the latest development as they happen. leveraging the powerful filtering technique provided by option API, user can tailor their news feed to specific interest, topic, language and regions, making it easier than ever than ever to find news that matter most to them. </code></p>
+                </div>
+                
+
+            </section>
+            <section class="data-visualization">
+                <h2>Uncleaned Data and Cleaned Data</h2>
+                <p>Below are visual representations of the raw and cleaned data to better understand the dataset's characteristics.</p>
+                <!-- Visualization Example -->
+                <div class="visualization">
+                    <img src="CNBC_data.png" alt="Uncleaned Data Visualization for CNBC">
+                    <p>Uncleaned Data</p>
+                </div>
+                <div class="visualization">
+                    <img src="CNBC_countvectorize.png" alt="Cleaned Data Visualization for Hertz Count Vectorize">
+                    <p>Cleaned Data</p>
+                </div>
+                <div class="visualization">
+                    <img src="Hertz_data.png" alt="Uncleaned Data Visualization for Hertz">
+                    <p>Uncleaned Data</p>
+                </div>
+                <div class="visualization">
+                    <img src="Hertz_countvectorize.png" alt="Cleaned Data Visualization for Reddit Comments">
+                    <p>Cleaned Data</p>
+                </div>
+                <div class="visualization">
+                    <img src="Reddit_countvectorize.png" alt="Uncleaned Data Visualization for Reddit Count Vectorize">
+                    <p>Uncleaned Data</p>
+                </div>
+                <div class="visualization">
+                    <img src="Reddit_countvectorize.png" alt="Cleaned Data Visualization">
+                    <p>Cleaned Data</p>
+                </div>
+                <div class="visualization">
+                    <img src="Merged_data.png" alt="Uncleaned merged Data Visualization">
+                    <p>Merged all the CSV file into one filed </p>
+                </div>
+                <div class="visualization">
+                    <img src="cleaned_merge_data.png" alt="Cleaned Data Visualization">
+                    <p>Cleaned the merged CSV file again </p>
+                </div>
+                <div class="visualization">
+                    <img src="merged_data_countvectorize.png" alt="Cleaned countvectorize Data Visualization">
+                    <p>Clean countvectorize of the merge data </p>
+                </div>
+            </section>    
+            <!-- Additional sections for summarizing data, etc. -->
+        </main>
+        <footer>
+            <p>© Aryaman singh</p>
+        </footer>
+
+
+            <script src="style.js"></script>
+    </body>
+</html>
