@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data Science Project Journey</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body> 
+        <div class="navbar">
+            <a href="Introduction.html">Introduction</a>
+            <a href="DataPrep_EDA.html">DataPrep_EDA</a>
+            <a href="Clustering.html">Clustering</a>
+            <a href="ARM.html">ARM</a>
+            <a href="LDA.html">LDA</a>
+            <a href="DecTrees.html">DecTrees</a>
+            <a href="SVMs.html">SVMs</a>
+            <a href="Regression.html">Regression</a>
+            <a href="NN.html">NN</a>
+            <a href="Conclusions.html">Conclusions</a>
+            <a href="code.html">Code</a>
+        </div>
+
+            <div class="arm-tab">
+                <h1>ARM Tab</h1>
+                <section id="overview">
+                    <h2>Overview</h2>
+                    <p>ARM stands for Association Rule Mining, a data mining technique used to find hidden patterns and relationships in large datasets. It's often used in market basket analysis to discover items frequently purchased together. ARM identifies sets of items that often appear together in transactions and expresses these relationships as rules.</p>
+                    <p>An association rule has two parts: an antecedent (if) and a consequent (then). For example, if a person buys bread (antecedent), they are likely to buy butter (consequent). The strength of an association rule is measured using three key metrics:</p>
+                    <ol>
+                        <li>Support: The proportion of transactions in the dataset that include all items in the antecedent and consequent. This measure helps to identify the rules that apply to a large portion of the data.</li>
+                        <li>Confidence: The proportion of transactions with the antecedent that also includes the consequent. This measures the reliability of the inference made by the rule.</li>
+                        <li>Lift: The ratio of the observed support to what would be expected if the antecedent and consequent were independent. A lift greater than 1 indicates a positive association between the antecedent and consequent.</li>
+                    </ol>
+                    <p>To use ARM on your data, you'll typically follow these steps:</p>
+                    <ol>
+                        <li>Data Preprocessing: Convert the dataset into a format suitable for ARM, often a list of transactions where each transaction is a set of items bought together.</li>
+                        <li>Applying ARM Algorithm: Use an algorithm like Apriori or FP-Growth to find frequent itemsets — sets of items that appear together in transactions more often than a specified threshold (minimum support).</li>
+                        <li>Rule Generation: From the frequent itemsets, generate association rules that meet the minimum confidence and lift thresholds.</li>
+                        <li>Analysis and Interpretation: Examine the rules to find useful patterns and associations. For example, in a dataset of comments about electric vehicles (EVs), you might discover associations between certain terms or topics that are often mentioned together.</li>
+                    </ol>
+                    <p>For the data to be a collection of comments on electric vehicles, ARM can help us understand the associations between different opinions, characteristics mentioned about EVs, and the context in which they are discussed. For example, we could find rules that show when cost is mentioned, range anxiety or charging times are also likely to be a concern. Or, if subsidies are discussed, there may be a related discussion about government policy or tax incentives.</p>
+                    <p>Before applying ARM, it would be essential to preprocess the data to encode it into a transactional format, where each comment is a transaction and the items are the topics or keywords within each comment.</p>
+                </section>
+                
+                <section id="data-prep">
+                    <h2>Data Preparation for Association Rule Mining</h2>
+                    <p>
+                        ARM, or Association Rule Mining, is particularly interested in discovering interesting relationships between variables in large databases. It does not require labeled data in the sense of supervised learning, where each instance of data must have a predefined class or label. Instead, ARM works with unlabeled transaction data.
+                    </p>
+                    <p>
+                        Here's what this means:
+                        <ol>
+                            <li><strong>Unlabeled:</strong> The data doesn't need to have a target variable or label, as it's not about predicting an outcome but about finding patterns of co-occurrence within the data.</li>
+                            <li><strong>Transaction Data:</strong> This format is a collection of transactions, where each transaction is a list of items that were recorded together. For market basket analysis, each transaction would be a customer's basket or purchase. In the context of text data, each transaction might be a list of keywords or topics extracted from a comment or document.</li>
+                        </ol>
+                    </p>
+                    <p>
+                        To prepare data for ARM, one typically converts the dataset into a list of transactions. For textual data, this would mean processing comments to extract relevant terms or topics, then organizing them as separate transactions. This format is akin to a list where each entry represents a transaction and contains a set of items (terms, keywords, products, etc.).
+                    </p>
+                    <p>
+                        Here's a step-by-step explanation using your context of comments on electric vehicles:
+                        <ol>
+                            <li><strong>Text Preprocessing:</strong> Clean the text in the comments by lowercasing, removing stop words, punctuation, and stemming or lemmatization.</li>
+                            <li><strong>Keyword/Phrase Identification:</strong> Identify relevant keywords or phrases within each comment that are related to the discussion of electric vehicles. This may involve techniques such as Named Entity Recognition, Topic Modeling, or simple keyword extraction based on a predefined glossary related to electric vehicles.</li>
+                            <li><strong>Transaction Creation:</strong> For each comment, create a transaction consisting of the identified keywords or phrases.</li>
+                            <li><strong>Transaction List:</strong> Compile all transactions into a single dataset, where the dataset consists of multiple lists, each representing a comment with its respective items (keywords/phrases).</li>
+                        </ol>
+                    </p>
+                    <h3>Transaction List</h3>
+                    <ul>
+                        <li>Transaction 1: ["electric car", "battery life", "expensive"]</li>
+                        <li>Transaction 2: ["charging time", "second vehicle", "shopping trolley"]</li>
+                        <li>Transaction 3: ["cold climate", "efficiency diminishes"]</li>
+                        <li>Transaction 4: ["solid state batteries", "future technology"]</li>
+                        <li>Transaction 5: ["jerrycan", "energy independence"]</li>
+                        <li>Transaction 6: ["trailer", "extra battery", "road trip"]</li>
+                        <li>Transaction 7: ["monthly subscription", "unlimited charging", "scandinavia"]</li>
+                        <li>Transaction 8: ["charging stops", "long trips"]</li>
+                        <li>Transaction 9: ["tax credit", "government subsidies", "infrastructure costs"]</li>
+                        <li>Transaction 10: ["carbon emissions", "eco friendly"]</li>
+                        <li>Transaction 11: ["tax increase", "original price", "CO2 emissions"]</li>
+                        <li>Transaction 12: ["competition", "gas cars", "market share"]</li>
+                        <li>Transaction 13: ["EV adoption", "public transport", "upgraded buses"]</li>
+                        <li>Transaction 14: ["mass transit", "autonomous vehicles", "uber"]</li>
+                        <li>Transaction 15: ["range increasing", "adequate for most", "price drop"]</li>
+                    </ul>
+                    <p>
+                        The image visualizes a sample of transaction data as it would be prepared for Association Rule Mining. Each row in the table represents an individual transaction and includes a list of items (keywords or topics) that were extracted from comments about electric vehicles. These items correspond to key subjects such as 'battery life', 'charging stations', 'range anxiety', and 'government subsidies', which are crucial in understanding the discussions around electric vehicles in the comments.
+                    </p>
+                    <p>
+                        This sample serves as a conceptual representation of how your dataset might be formatted after the preprocessing steps I mentioned earlier. Each row would be analyzed by an ARM algorithm to find frequent patterns and derive association rules.
+                    </p>
+                </section>
+                <section id="code">
+                    <h2>Code</h2>
+                   
+                    <a href="code.html">Link to the code</a>
+                </section>
+                <section id="results">
+                    <h2>Results</h2>
+                    <h3>Image 1</h3>
+                    <p>Image 1 shows the top rules by support, where the thickness of the edges represents the support or strength of the relationship between the connected nodes.</p>
+                    <p>The most strongly supported rules in Image 1 include "price drop", "upgraded buses", "original price", and "range increasing". These factors seem to be related to the cost and performance of vehicles. Some other notable rules with strong support are "CO2 emissions", "autonomous vehicles", "adequate for most", "public transport", "uber", and "tax increase". These rules appear to be related to environmental concerns, transportation options, and taxation policies.</p>
+                    <img src="Network_support.png" alt="Network graph by Support Visualization">
+                    <h3>Image 2</h3>
+                    <p>Image 2 shows the same set of rules, but with the edges representing the confidence or certainty associated with each relationship.</p>
+                    <p>In Image 2, the rules with the highest confidence levels are "price drop", "adequate for most", and "mass transit". These rules seem to be central to the network and have strong connections to many other factors. Rules with moderate confidence levels include "public transport", "EV adoption", "autonomous vehicles", "range increasing", "uber", and "upgraded buses". These rules are likely important but may have more uncertainty or variability in their relationships with other factors.</p>
+                    <p>The rules with lower confidence levels in Image 2 are "CO2 emissions", "original price", and "tax increase". While these factors are present in the network, their connections to other rules appear to have relatively lower confidence or certainty.</p>
+                    <p>Overall, these network graphs provide a visual representation of the interrelationships between various transportation and environmental policies or factors. The support and confidence levels depicted can help identify the most influential or important rules, as well as areas of greater uncertainty or variability within the network.</p>
+                    <img src="Network_confidence.png" alt="Network graph by Confidence Visualization">
+                </section>
+                
+                <section id="conclusions">
+                    <h2>Conclusions</h2>
+                    <p>What did you learn that pertains to your topic?</p>
+                </section>
+            </div>
+
+            <footer>
+                <p>© Aryaman singh</p>
+            </footer>
+
+
+
+            <script src="style.js"></script>
+    </body>
+</html>
